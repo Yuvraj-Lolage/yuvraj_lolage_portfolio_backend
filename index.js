@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const port = 4000;
+const port = 5050;
 const { ProjectRouter } = require('./routes/projects');
 
 //Database Connection
