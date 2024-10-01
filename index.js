@@ -8,12 +8,11 @@ const { ProjectRouter } = require('./routes/projects');
 const connection = mongoose.connect('mongodb+srv://yuvraj:yuvraj@cluster0.mamoiv2.mongodb.net/portfolio');
 
 connection ? console.log("Database connection Success") : console.log("Error Connection");
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    next();
-})
+app.use(cors({
+    origin: '*',  // or specify domains you want to allow
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
 app.use(ProjectRouter);
 
 app.listen(port, () => {
