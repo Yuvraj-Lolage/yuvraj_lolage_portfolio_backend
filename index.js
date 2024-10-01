@@ -9,7 +9,7 @@ const connection = mongoose.connect('mongodb+srv://yuvraj:yuvraj@cluster0.mamoiv
 
 connection ? console.log("Database connection Success") : console.log("Error Connection");
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://yuvraj-portfolio-lol7odlhs-yuvraj-lolages-projects.vercel.app/");
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     next();
