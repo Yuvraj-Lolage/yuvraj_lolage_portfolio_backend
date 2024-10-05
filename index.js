@@ -1,11 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config();
 const app = express();
-const port = 5000;
+const port = process.env.PORT_NUMBER;
 const { ProjectRouter } = require('./routes/projects');
 
 //Database Connection
-const connection = mongoose.connect('mongodb+srv://yuvraj:yuvraj@cluster0.mamoiv2.mongodb.net/portfolio');
+const connection = mongoose.connect(`${ process.env.DATABASE_URL }`);
 
 connection ? console.log("Database connection Success") : console.log("Error Connection");
 app.use((req, res, next) => {
