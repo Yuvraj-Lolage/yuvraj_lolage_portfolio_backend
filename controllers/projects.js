@@ -10,7 +10,19 @@ const getAllProjects = (req,res) => {
     }
 }
 
+const getProjectById = (req,res) => {
+    try {
+        const projectId = req.params.id;
+        const project = ProjectModel.find({ _id: projectId }).then((result)=>{
+            res.send(result);
+        })
+    } catch (error) {
+        
+    }
+}
+
 module.exports = {
-    getAllProjects
+    getAllProjects,
+    getProjectById
 }
 
